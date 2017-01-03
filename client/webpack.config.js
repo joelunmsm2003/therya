@@ -1,11 +1,18 @@
 var webpack = require('webpack');
 var path = require('path');
 module.exports = {
-    entry: "./app/app",
+
+
+    entry: [
+        './app/app','./bower_components/jquery/dist/jquery.js',
+        ],
+    
     output: {
-        filename: 'build.js',
-        path: './build'
+      filename: 'build.js',
+      path: './build'
     },
+
+
     // devtool: "#cheap-module-source-map",
     module: {
         loaders: [{
@@ -37,6 +44,8 @@ module.exports = {
         alias: {
             Screen1Component: path.resolve(__dirname,"./app/screen1/screen1.component"),
             Screen2Component: path.resolve(__dirname,"./app/screen2/screen2.component"),
+            AndyComponent: path.resolve(__dirname,"./app/andy/andy.component"),
+            HomeComponent: path.resolve(__dirname,"./app/home/home"),
         }
 
     }

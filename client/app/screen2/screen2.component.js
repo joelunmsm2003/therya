@@ -1,11 +1,13 @@
-angular.module('prettyUrl')
-    .component('screen2', {
-        template: require('./screen2.html'),
-        controller: Screen2Controller,
-        controllerAs: 'vm'
-    });
+angular
+  .module('prettyUrl')
+  .component('screen2', {
+    templateUrl: './screen2.html',
+    controller: Screen2Controller
+  });
 
-Screen2Controller.$inject = [];
+
 function Screen2Controller(){
-	var vm = this;
+
 }
+
+

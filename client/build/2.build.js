@@ -1,26 +1,26 @@
 webpackJsonp([2],{
 
-/***/ 7:
+/***/ 11:
 /***/ function(module, exports, __webpack_require__) {
 
 	angular.module('prettyUrl')
-	    .component('screen2', {
-	        template: __webpack_require__(8),
-	        controller: Screen2Controller,
+	    .component('andy', {
+	        template: __webpack_require__(12),
+	        controller: AndyController,
 	        controllerAs: 'vm'
 	    });
 
-	Screen2Controller.$inject = [];
-	function Screen2Controller(){
+	AndyController.$inject = [];
+	function AndyController(){
 		var vm = this;
 	}
 
 /***/ },
 
-/***/ 8:
+/***/ 12:
 /***/ function(module, exports) {
 
-	module.exports = "<H1>Screen 2</H1>\r\n<a ui-sref=\"screen1\">Go to Screen 1</a>";
+	module.exports = "Andypappppppa";
 
 /***/ }
 
