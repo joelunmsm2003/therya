@@ -86,7 +86,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider,$htt
 angular
   .module('prettyUrl')
   .component('andy', {
-    templateUrl: './andy.html',
+    templateUrl: 'html/andy/andy.html',
     controller: AndyController
   });
 
@@ -124,7 +124,7 @@ function Screen2Controller(){
 angular
   .module('prettyUrl')
   .component('screen2', {
-    templateUrl: './screen2.html',
+    templateUrl: 'html/screen2/screen2.html',
     controller: Screen2Controller
   });
 

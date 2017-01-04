@@ -1,7 +1,7 @@
 angular
   .module('prettyUrl')
   .component('screen2', {
-    templateUrl: './screen2.html',
+    templateUrl: 'html/screen2/screen2.html',
     controller: Screen2Controller
   });
 

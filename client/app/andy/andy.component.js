@@ -1,7 +1,7 @@
 angular
   .module('prettyUrl')
   .component('andy', {
-    templateUrl: './andy.html',
+    templateUrl: 'html/andy/andy.html',
     controller: AndyController
   });
 

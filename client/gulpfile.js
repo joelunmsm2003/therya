@@ -19,7 +19,7 @@ var gulp  = require('gulp'),
 
 // Compilar SASS, poner auto-prefijos, minimizar
 gulp.task('styles', function() {
-	return gulp.src('./src/**/*.scss') // ¿Dónde están los archivos fuentes?
+	return gulp.src('./app/**/*.scss') // ¿Dónde están los archivos fuentes?
 		.pipe(plumber(function(error) { // Así podemos ver errores en el terminal
 				gutil.log(gutil.colors.red(error.message));
 				this.emit('end');
@@ -30,11 +30,11 @@ gulp.task('styles', function() {
 				browsers: ['last 2 versions'],
 				cascade: false
 		}))
-		.pipe(gulp.dest('./dist/css/'))
+		.pipe(gulp.dest('./build/css/'))
 		.pipe(rename({suffix: '.min'}))
 		.pipe(cssnano())
 		.pipe(sourcemaps.write('.')) // Creates sourcemaps for minified styles
-		.pipe(gulp.dest('./dist/css/'))
+		.pipe(gulp.dest('./build/css/'))
 });
 		
 // JSHint, concat, and minify JavaScript
@@ -137,14 +137,13 @@ gulp.task('browsersync', function() {
 gulp.task('watch', function() {
 
 	
-	// Watch .scss files
-	//gulp.watch('./src/**/*.scss', ['styles']);
-
 	gulp.watch('./app/app.js', ['app-js']);
 
-	//gulp.watch('./src/*.js', ['app-js']);
-	// Watch site-js files
 	gulp.watch('./app/**/*.js', ['app-js']);
+
+	gulp.watch('./app/**/*.html', ['html']);
+
+	gulp.watch('./app/**/*.scss', ['styles']);
 
 	
 
@@ -174,4 +173,9 @@ gulp.task('translations', function () {
             format: 'javascript'
         }))
         .pipe(gulp.dest('./dist/translations/'));
+});
+
+gulp.task('html',function(){
+    gulp.src('./app/**/*.html')
+    .pipe(gulp.dest('./build/html'));
 });
