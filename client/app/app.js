@@ -1,12 +1,11 @@
 
+angular
 
-var app = angular.module('prettyUrl',[
-		'ui.router',
-		'ngStorage',
-		'gettext'
-	]);
-
-app.config(routesConfig)
+.module('app', ['ngSanitize','angular-input-stars','rzModule','ui.router','ngStorage','ui.bootstrap','ngAnimate','ngTouch','ngScrollTo','flow','xeditable','ngResource','gettext','ngMap','ngLocale','tmh.dynamicLocale','wyvernzora.un-svg'])
+      
+.config(routesConfig)
+.service('UserService', UserService)
+.service('ColegioService', ColegioService)
 
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider,$httpProvider) {
 
@@ -18,7 +17,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider,$htt
 		})
 		.state('andy',{
 			url : '/andy',
-			template: "<andy></andy>",
+			template: "<andycomponent></andycomponent>",
 
 		})
 		.state('screen2',{
@@ -26,20 +25,17 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider,$htt
 			template: "<screen2></screen2>",
 
 		})
+		
 
 		.state('home',{
-			url : '/',
-			template: "<home></home>",
+			url : '/home',
+			template: "<homecomponent></homecomponent>",
 
 		});
 
 
+	host = 'http://localhost:8000/'
 
-	$urlRouterProvider.otherwise('/');
-
-
-	//Client side Configuration to pretty url
-	//Remove # from url
 
 	$locationProvider.html5Mode(true);
 
@@ -62,24 +58,5 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider,$htt
 	};
 	}]);
 
-
-	if (window.location.href.slice(0,19) == "http://192.168.0.58"){
-
-	host = 'http://192.168.0.58:8000/' 
-
-	}
-
-	if (window.location.href.slice(0,25) == "http://chooseandbookit.tk"){
-
-
-	host = 'http://chooseandbookit.tk:8000/' 
-
-	}
-
-	if (window.location.href.slice(0,19) == "http://192.168.1.33"){
-
-	host = 'http://192.168.1.33:8000/' 
-
-	}
 
 }

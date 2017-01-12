@@ -19,7 +19,7 @@ var gulp  = require('gulp'),
 
 // Compilar SASS, poner auto-prefijos, minimizar
 gulp.task('styles', function() {
-	return gulp.src('./app/**/*.scss') // ¿Dónde están los archivos fuentes?
+	return gulp.src('./bootstrap.scss') // ¿Dónde están los archivos fuentes?
 		.pipe(plumber(function(error) { // Así podemos ver errores en el terminal
 				gutil.log(gutil.colors.red(error.message));
 				this.emit('end');
@@ -31,10 +31,10 @@ gulp.task('styles', function() {
 				cascade: false
 		}))
 		.pipe(gulp.dest('./build/css/'))
-		.pipe(rename({suffix: '.min'}))
-		.pipe(cssnano())
-		.pipe(sourcemaps.write('.')) // Creates sourcemaps for minified styles
-		.pipe(gulp.dest('./build/css/'))
+		//.pipe(rename({suffix: '.min'}))
+		//.pipe(cssnano())
+		//.pipe(sourcemaps.write('.')) // Creates sourcemaps for minified styles
+		//.pipe(gulp.dest('./build/css/'))
 });
 		
 // JSHint, concat, and minify JavaScript
@@ -42,10 +42,10 @@ gulp.task('app-js', function() {
 	return gulp.src([	
 		
 	// Grab your custom scripts
-	
-	'./app/app.js',
-	//'./src/service/**/*.js',
-	'./app/**/*.js',
+	'app/a1/*.js',
+	'app/app.js',
+
+	'app/**/*.js',
 				
 	])
 		.pipe(plumber())
@@ -145,8 +145,9 @@ gulp.task('watch', function() {
 
 	gulp.watch('./app/**/*.scss', ['styles']);
 
-	
+	gulp.watch('./variables.scss', ['styles']);
 
+	
 }); 
 
 // Run styles, site-js and bootstrap-js

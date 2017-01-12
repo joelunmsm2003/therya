@@ -1,13 +1,16 @@
 angular
-  .module('prettyUrl')
-  .component('home', {
-    templateUrl: 'home.html',
+  .module('app')
+  .component('homecomponent', {
+    templateUrl: '../html/home/home.html',
     controller: HomeController
   });
 
 
-function HomeController($scope){
 
-  console.log('holalalal')
+function HomeController($scope,UserService){
+
+
+$scope.alumnos = UserService.alumnos()
+
 
 }
