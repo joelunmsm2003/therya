@@ -1,10 +1,9 @@
-killall -9 python
-cd /home/andy/proyectos/cb
-python manage.py runserver&
+killall -9 node
 
-cd /home/andy/proyectos/cf/server
+
+cd /home/andy/proyectos/therya/server
 npm start&
 
-cd /home/andy/proyectos/cf/client
+cd /home/andy/proyectos/therya/client
 gulp watch&
 
