@@ -1,0 +1,73 @@
+<div class='container'>
+
+	<div class='row'>
+
+		<div class='col-md-4'>
+
+		<div class='circulo'>
+
+		<h3>Pedidos</h3>
+
+		</div>
+		
+
+
+
+
+		</div>
+
+
+		<div class='col-md-4'>
+
+
+		<div class='circulo'>
+		
+		<h3>Datos</h3>
+
+		</div>
+
+		</div>
+
+
+		<div class='col-md-4'>
+
+		<div class='circulo'>
+
+		<h3>Productos</h3>
+
+		</div>
+
+		
+		</div>
+
+	</div>
+
+
+
+	<div class='row'>
+
+		<div class='col-md-4'>
+
+
+		<h3>Espera</h3>
+
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="pedido in pedidos | filter:{ EMPRESA: '123' }">{{ pedido.PRODUCTO }}</li>
+		    
+		</ul>
+		</div>
+
+
+		<div class='col-md-4'>
+		<h3>Proceso</h3>
+		</div>
+
+
+		<div class='col-md-4'>
+		<h3>Terminado</h3>
+		</div>
+
+	</div>
+
+
+</div>

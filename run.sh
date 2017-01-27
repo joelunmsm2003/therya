@@ -1,9 +1,9 @@
 killall -9 node
 
 
-cd /home/andy/proyectos/therya/server
+cd /home/andiu/proyectos/therya/server
 npm start&
 
-cd /home/andy/proyectos/therya/client
+cd /home/andiu/proyectos/therya/client
 gulp watch&
 

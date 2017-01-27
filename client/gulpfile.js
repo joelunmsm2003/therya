@@ -152,7 +152,7 @@ gulp.task('watch', function() {
 
 // Run styles, site-js and bootstrap-js
 gulp.task('default', function() {
-	gulp.start('styles', 'app-js', 'vendor-js');
+	gulp.start('styles', 'app-js','html');
 });
 
 

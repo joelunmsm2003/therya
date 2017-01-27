@@ -1,7 +1,17 @@
+// Initialize the Firebase SDK
+
+	  var config = {
+			apiKey: "AIzaSyAOJT8i-OwNLYOmsd1qdlweiKU9jOYJwPA",
+			authDomain: "therya-e8bca.firebaseapp.com",
+			databaseURL: "https://therya-e8bca.firebaseio.com",
+			storageBucket: "therya-e8bca.appspot.com",
+			messagingSenderId: "1076633937247"
+	  };
+	  firebase.initializeApp(config);
 
 angular
 
-.module('app', ['ngSanitize','angular-input-stars','rzModule','ui.router','ngStorage','ui.bootstrap','ngAnimate','ngTouch','ngScrollTo','flow','xeditable','ngResource','gettext','ngMap','ngLocale','tmh.dynamicLocale','wyvernzora.un-svg'])
+.module('app', ['firebase','ngSanitize','angular-input-stars','rzModule','ui.router','ngStorage','ui.bootstrap','ngAnimate','ngTouch','ngScrollTo','flow','xeditable','ngResource','gettext','ngMap','ngLocale','tmh.dynamicLocale','wyvernzora.un-svg'])
       
 .config(routesConfig)
 .service('UserService', UserService)
@@ -57,6 +67,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider,$htt
 	    }
 	};
 	}]);
+
+
 
 
 }

@@ -118,10 +118,20 @@ function UserService ($http,$q,$log,$localStorage) {
 
 
 
+// Initialize the Firebase SDK
+
+	  var config = {
+			apiKey: "AIzaSyAOJT8i-OwNLYOmsd1qdlweiKU9jOYJwPA",
+			authDomain: "therya-e8bca.firebaseapp.com",
+			databaseURL: "https://therya-e8bca.firebaseio.com",
+			storageBucket: "therya-e8bca.appspot.com",
+			messagingSenderId: "1076633937247"
+	  };
+	  firebase.initializeApp(config);
 
 angular
 
-.module('app', ['ngSanitize','angular-input-stars','rzModule','ui.router','ngStorage','ui.bootstrap','ngAnimate','ngTouch','ngScrollTo','flow','xeditable','ngResource','gettext','ngMap','ngLocale','tmh.dynamicLocale','wyvernzora.un-svg'])
+.module('app', ['firebase','ngSanitize','angular-input-stars','rzModule','ui.router','ngStorage','ui.bootstrap','ngAnimate','ngTouch','ngScrollTo','flow','xeditable','ngResource','gettext','ngMap','ngLocale','tmh.dynamicLocale','wyvernzora.un-svg'])
       
 .config(routesConfig)
 .service('UserService', UserService)
@@ -179,6 +189,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider,$htt
 	}]);
 
 
+
+
 }
 angular
   .module('app')
@@ -231,7 +243,10 @@ angular
   });
 
 
-function ColeController(){
+function ColeController(ColegioServicio){
+
+
+	console.log('cole..',ColegioServicio.alumnos())
 
 }
 
@@ -264,11 +279,24 @@ angular
 
 
 
-function HomeController($scope,UserService){
+function HomeController($scope,$firebaseObject,$firebaseArray,$filter){
 
 
-$scope.alumnos = UserService.alumnos()
 
+
+
+    var ref = firebase.database().ref().child("PEDIDOS");
+  // create a synchronized array
+  // click on `index.html` above to see it used in the DOM!
+  $scope.pedidos = $firebaseArray(ref);
+
+    console.log('pedidos',$scope.pedidos)
+
+
+  $scope.pedidos = $filter('filter')($scope.pedidos,{'EMPRESA' : '123'})
+
+
+  console.log('pedidos',$scope.pedidos)
 
 }
 
@@ -316,6 +344,31 @@ function NewuserController($scope,UserService){
 		console.log('gfgfgf',data)
 
 	}
+
+
+}
+
+angular
+  .module('app')
+  .component('pedidoscomponent', {
+    templateUrl: '../html/pedidos/pedidos.html',
+    controller: PedidosController
+  });
+
+
+
+function PedidosController($scope,$firebaseArray,$filter){
+
+
+    var ref = firebase.database().ref().child("PEDIDOS");
+  // create a synchronized array
+  // click on `index.html` above to see it used in the DOM!
+  $scope.pedidos = $firebaseArray(ref);
+
+    console.log('pedidos',$scope.pedidos)
+
+
+
 
 
 }
